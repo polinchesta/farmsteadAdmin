@@ -1,0 +1,105 @@
+.container
+    text-align: left
+
+    .farmstead
+        border: 2px solid black
+        display: flex
+        width: 70%
+        align-items: flex-start
+        justify-content: flex-start /* Add this line */
+        margin: 25px auto
+    @media (max-width: 1200px)
+        width: 90%
+
+    @media (max-width: 800px)
+        width: 90%
+
+    .title, .information, .readMore
+        font-family: 'PT Mono', monospace
+        color: black
+        text-align: justify
+        padding: 0px 15px
+
+        @media (max-width: 1024px)
+            font-size: 13px
+
+        @media (max-width: 768px)
+            font-size: 12px
+
+    .information
+        font-size: 16px
+        margin: 15px 0px
+
+        @media (max-width: 1200px)
+            font-size: 13px
+
+        @media (max-width: 800px)
+            font-size: 12px
+
+    .title
+        font-size: 19px
+        text-align: left
+
+        @media (max-width: 1200px)
+            font-size: 17px
+
+        @media (max-width: 800px)
+            font-size: 15px
+
+    img
+        margin-bottom: -5px
+        height: 250px
+        width: 350px
+        filter: grayscale(100%)
+        transition: filter 1.5s ease
+        &:hover
+            filter: none
+
+            @media (max-width: 1024px)
+                width: 270px
+
+            @media (max-width: 768px)
+                width: 200px
+
+    .readMore
+        font-size: 17px
+        margin: 20px 15px
+        display: flex
+        height: 40px
+        width: fit-content
+        justify-content: center
+        align-items: center
+        background: none
+        text-decoration: none
+        border: 3px solid black
+        &:hover
+            color: white
+            background: #6b6565
+
+        @media (max-width: 1200px)
+            width: 270px
+
+
+    .buttons
+        display: flex
+    .button
+        font-family: 'PT Mono', monospace
+        font-size: 17px
+        margin: 0px 15px
+        padding: 5px 5px
+        border-radius: 4px
+        display: flex
+        height: 40px
+        width: fit-content
+        justify-content: center
+        align-items: center
+        background: none
+        border: 3px solid black
+        color: black
+        text-decoration: none
+        cursor: pointer
+        transition: background-color 0.3s ease
+
+        &:hover
+            background-color: #6b6565
+            color: white

@@ -1,0 +1,56 @@
+.container
+    position: relative
+    margin-bottom: 16px
+
+    &Focused
+        border-color: #2196f3
+
+
+    .hiddenLabel
+        position: absolute
+        top: 50%
+        left: 12px
+        transform: translateY(-50%)
+        transition: transform 0.2s ease-out, opacity 0.2s ease-out
+        pointer-events: none
+        color: rgba(17, 0, 0, 0.54)
+        font-size: 16px
+        line-height: 1
+        padding: 4px
+        text-align: left
+        opacity: 0.6
+        z-index: 3
+        font-family: "PT Mono", monospace
+
+        &Active
+            transform: translateY(-120%)
+            opacity: 0
+
+    input
+        font-family: "PT Mono", monospace
+        border: 3px solid black
+        height: 40px
+        width: 100%
+        padding: 20px
+        text-align: center
+        font-size: 16px
+        border: 2px solid rgba(0, 0, 0, 0.23)
+        border-radius: 4px
+        outline: none
+        background: transparent
+        position: relative
+        z-index: 2
+        transition: border-color 0.2s ease-out
+
+        &:hover
+            color: #6b6565
+            background: transparent
+
+
+        &:focus
+            border-color: #0b1721
+
+    .error
+        color: red
+        font-size: 14px
+        margin-top: 4px

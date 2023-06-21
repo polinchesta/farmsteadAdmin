@@ -1,0 +1,95 @@
+{
+    "header": {
+        "links": {
+            "main": "Strona główna",
+            "products": "Produkty",
+            "farmstead": "Dwory",
+            "sign": "Logowanie/Rejestracja"
+        },
+        "aboutMaik": "*Agrobiznes Maik oczami autora"
+    },
+    "main": {
+        "button": {
+            "grodnoRegion": "📍 Region Grodzieński"
+        },
+        "leftInformation": {
+            "latestPosts": "OSTATNIE WPISY"
+        },
+        "rightInformation": {
+            "news": "AKTUALNOŚCI",
+            "aboutNews": "Dla użytkowników naszej strony oferujemy ZNIŻKĘ w wysokości 15% na rezerwację usadeb przy użyciu specjalnego KODU PROMOCYJNEGO:",
+            "connect": "SKONTAKTUJ SIĘ Z NAMI",
+            "email": "E-mail",
+            "feedback": "SKONTAKTUJ SIĘ Z NAMI",
+            "aboutMessage": "Temat wiadomości:",
+            "message": "Wiadomość",
+            "send": "Wyślij"
+        },
+        "information": {
+            "why": "Dlaczego właśnie Region Grodzieński?"
+        }
+    },
+    "grodno": {
+        "history": "Historia Grodna",
+        "textAll": "Terytorium Grodna było zasiedlone przez ludzi od późnego paleolitu. Najstarsze osady znajdowały się nad jeziorem Święca, w okolicach wsi Czereszla w Nowogródzkim, Niesilowicze w Dyatłowskim, Zbłany w Lidzkim powiecie, w okolicach ujścia rzeki Kotra. Tutaj żyły wschodniosłowiańskie plemiona (dregowicze, krzywiczanie, wołynianie, drzewlanie), zachodniosłowiańskie (masowianie), wschodniobałtyckie (Litwini), zachodniobałtyckie (Jaćwingowie). W drugiej połowie I tysiąclecia rozpoczyna się słowiańska kolonizacja.",
+        "textAll1": "Księstwo, podobnie jak inne ziemie zachodnioruskie, przez długi czas znajdowało się pod ciągłym zagrożeniem mongolsko-tatarskiego podboju. Przez ponad dwa wieki były one bastionem walki z agresją krzyżacką. W warunkach walki przeciwko agresji krzyżackiej w zamku w Krewie, położonym w powiecie smorgońskim, zawarta została słynna unia krewska w 1385 roku, która położyła początek zjednoczeniu Wielkiego Księstwa Litewskiego i Królestwa Polskiego. Znaczną przewagą w wspólnej walce o niepodległość przeciwko zewnętrznej agresji była bitwa grunwaldzka w 1410 roku, w której razem z białoruskimi, ruskimi i polskimi oddziałami walczyły grodzieńskie, wołkowyskie, lidzkie i inne oddziały, i gdzie odniesiono błyskotliwe zwycięstwo nad najeźdźcami.",
+        "grodnoin19": "Grodno w XIX wieku",
+        "textAll2": "W XII – XVI w. największe miasta i miasteczka Grodzieńszczyzny zaczęły odgrywać znaczącą rolę w ekonomicznym i kulturalnym życiu kraju. Niektóre z nich (Grodno, Nowogródek, Słonim i inne) uzyskały samorządność zgodnie z prawem magdeburskim. Gospodarka grodzieńska, jako administracyjno-terytorialna jednostka, była wówczas jednym z najbardziej rozwiniętych i bogatych w państwie. Po drugim i trzecim rozbiorze Rzeczypospolitej w latach 1793 i 1795 terytorium obecnej obwodu grodzieńskiego weszło w skład Imperium Rosyjskiego.",
+        "textAll3": "Oswajając terytoria Grodzieńszczyzny, Słowianie stopniowo asymilowali żyjące tu od czasów bałto-słowiańskich ludność bałtycką. Asymilacja Bałtów trwała do XII – początku XIII w. W XII – pierwszej połowie XIV w. istniały Grodzieńskie, Nowogródzkie i Wołkowyskie księstwa. Te samodzielne państwowe związki nieśli na sobie odbicie jednolitego politycznego i społeczno-ekonomicznego rozbicia wschodniosłowiańskich ziem w składzie Kijowskiej Rusi – kolebki braterskich białoruskiego, rosyjskiego i ukraińskiego narodu.",
+        "textAll4": "Znaczącym wydarzeniem w jej historii było 1801 roku, kiedy utworzono Grodzieńską gubernię, która wkrótce stała się jedną z największych ekonomicznie rozwiniętych guberni Rosji. W 1890 roku tylko w Grodnie znajdowało się ponad 70 fabryk i zakładów, w których pracowało ponad 2 tysiące robotników. Największym przemysłowym przedsiębiorstwem Białorusi była fabryka tytoniu w Grodnie. W Słonimie rozwijał się przemysł obróbki drewna, w Dyatłowie – metalurgiczny, a w Smorgoniach i Oszmianach – skórzany. W wyniku postanowień traktatu ryskiego w 1921 roku ziemie Grodzieńszczyzny przeszły pod panowanie Polski. We wrześniu 1939 roku Grodzieńszczyzna weszła w skład Białoruskiej SRR.",
+        "volkovyskin19": "Wołkowysk w XIX wieku",
+        "textAll5": "W latach 1939-1941 w Grodnie otwarto fabryki obuwnicze, krawieckie, meblowe, piekarnię, instytut nauczycielski, teatr polski, założone zostały archiwa historyczne i obwodowe. W czasie II wojny światowej (1941-1945) na terenie obwodu rozwijał się szeroko ruch partyzancki. Tysiące grodzieńczyków walczyło dzielnie na frontach wojny. Niemcy zniszczyli ponad 120 zakładów przemysłowych, niemal wszystkie kołchozy, sowchozy i MAS-y. 20 września 1944 roku utworzono Grodzieńską obwód z centrum w Grodnie.",
+        "novogrudokin19": "Nowogródek w XIX wieku"
+    },
+    "sign": {
+        "input": "Zaloguj się",
+        "email": "Email",
+        "password": "Hasło",
+        "signIn": "Zaloguj się",
+        "signUp": "Zarejestruj się",
+        "acc": "Nie masz konta?",
+        "reg": "Rejestracja",
+        "acc1": "Masz już konto?",
+        "error": "Nieprawidłowy login lub hasło."
+    },
+    "sort": {
+        "popular": "Popularne",
+        "sort": "Sortuj",
+        "min": "Cena minimalna",
+        "max": "Maksymalna cena"
+    },
+    "field": {
+        "search": "Czego szukasz?"
+    },
+    "adminPanel": {
+        "title": "Panel administratora",
+        "description":"Panel administratora (czasami nazywany również panelem admina lub panelem administracyjnym) to interfejs internetowy, który został stworzony do zarządzania i administrowania witryną internetową lub aplikacją internetową. Zapewnia administratorom i moderatorom dostęp do różnych narzędzi i funkcji, umożliwiających zarządzanie treścią, użytkownikami, ustawieniami i innymi aspektami strony."
+    },  
+    "order": {
+        "button": "Zamów w 1 kliknięciu"
+    },
+    "modal": {
+        "phone": "Twój numer telefonu:",
+        "email": "Twój adres email:",
+        "name": "Jak możemy się do Ciebie zwracać:",
+        "call": "Zamów rozmowę telefoniczną"
+    },
+    "farm": {
+        "error": "Brak danych o zagrodzie"
+    },
+    "back": {
+        "button": "Z powrotem"
+    },
+    "infoFarmstead": {
+        "info": "Informacje o zagrodzie:"
+    },
+    "video": {
+        "watch": "Obejrzyj wideo"
+    },
+    "open": {
+        "currency": "Przelicznik walut"
+    },
+    "page404":{
+        "error":"W tej chwili strona jest w trakcie tworzenia. Przepraszamy za niedogodności. "
+    }
+}

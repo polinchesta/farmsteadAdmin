@@ -1,0 +1,19 @@
+.gridContainer
+    display: grid
+    gap: 20px
+    grid-template-columns: repeat(3, 32%)
+    justify-items: stretch
+    justify-content: center
+    margin: 0px auto
+    max-width: 90%
+
+    @media (max-width: 1024px)
+        grid-template-columns: repeat(3, 31%)
+
+    @media (max-width: 768px)
+        grid-template-columns: repeat(2, 48%)
+
+    @media (max-width: 480px)
+        grid-template-columns: repeat(1, 90%)
+
+

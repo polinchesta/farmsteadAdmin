@@ -1,0 +1,95 @@
+{
+    "header": {
+        "links": {
+            "main": "Main",
+            "products": "Products",
+            "farmstead": "Farmstead",
+            "sign": "Sign up/Sign in"
+        },
+        "aboutMaik": "*Maik-agribusiness through the eyes of the author"
+    },
+    "main": {
+        "button": {
+            "grodnoRegion": "📍 Grodno region"
+        },
+        "leftInformation": {
+            "latestPosts": "LATEST POSTS"
+        },
+        "rightInformation": {
+            "news": "NEWS",
+            "aboutNews": "For users of our website, a DISCOUNT of 15% is provided for booking estates when using a special PROMO CODE:",
+            "connect": "CONNECT WITH US",
+            "email": "Email",
+            "feedback": "FEEDBACK",
+            "aboutMessage": "Message subject:",
+            "message": "Message",
+            "send": "Send"
+        },
+        "information": {
+            "why": "WHY GRODNO REGION?"
+        }
+    },
+    "grodno": {
+        "history": "History Grodno region",
+        "textAll": "The territory of Grodno was inhabited by people from the Late Paleolithic period. The oldest settlements were located near Lake Svityazh, near the village of Cheresha in Novogrudok, Nesilovichi in Dyatlovo, Zblyany in Lida districts, and near the mouth of the Kotra River. Eastern Slavic tribes (Dregovichs, Krivichs, Volhynians, Drevlyans), Western Slavic (Mozovshans), Eastern Baltic (Lithuanians), and Western Baltic (Yatvingians) lived here. The Slavic colonization began in the second half of the 1st millennium.",
+        "textAll1": "The principalities, like other Western Russian lands, were under constant threat of Mongol-Tatar conquest for a long time. For over two centuries, they served as a frontline in the struggle against the aggression of the Crusaders. In the midst of the fight against the Crusaders' aggression, the famous Union of Krewo was concluded in the Kreva Castle, located in the Smorgon district, in 1385. This union marked the beginning of the unification of the Grand Duchy of Lithuania and Poland. A significant milestone in the joint struggle for independence against external aggression was the Battle of Grunwald in 1410. The Grodno, Volkovysk, Lida, and other regiments fought alongside Belarusian, Russian, and Polish forces, achieving a brilliant victory over the conquerors.",
+        "grodnoin19": "Grodno in the 19th century",
+        "textAll2": "In the 12th to 16th centuries, the largest cities and towns in the Grodno region began to play a significant role in the economic and cultural life of the country. Some of them, such as Grodno, Novogrudok, Slonim, and others, gained self-governance in accordance with the Magdeburg Law. The economy of Grodno, as an administrative and territorial unit, was one of the most developed and prosperous in the country at that time. After the Second and Third Partitions of the Polish-Lithuanian Commonwealth in 1793 and 1795, the territory of the modern Grodno region became part of the Russian Empire.",
+        "textAll3": "As the Slavs settled in the territories of Grodno, they gradually assimilated the ancient Baltic-speaking population that lived there. The assimilation of the Balts continued until the 12th-13th centuries. In the 12th to the first half of the 14th century, there existed the principalities of Grodno, Novogrudok, and Volkovysk. These independent state formations bore the imprint of the unified political and socio-economic development of the East Slavic lands within the framework of Kievan Rus - the cradle of the fraternal Belarusian, Russian, and Ukrainian peoples.",
+        "textAll4": "A significant event in its history was the formation of the Grodno Governorate in 1801, which soon became one of the most economically developed governorates of Russia. By 1890, Grodno alone had over 70 factories and plants employing more than 2,000 workers. The tobacco factory in Grodno was one of the largest industrial enterprises in Belarus. The woodworking industry flourished in Slonim, while Dyatlovo specialized in hosiery production, and Smorgon and Oshmyany had a thriving leather industry. According to the conditions of the Riga Peace Treaty in 1921, the lands of Grodno were ceded to Poland. In September 1939, Grodno became part of the Belarusian Soviet Socialist Republic (BSSR).",
+        "volkovyskin19": "Volkovysk in the 19th century",
+        "textAll5": "During the years 1939-1941, Grodno saw the opening of shoe, sewing, and furniture factories, a bread plant, a teacher training institute, a Polish theater, as well as the establishment of historical and regional archives. During the Great Patriotic War (1941-1945), the partisan movement experienced significant development in the region. Thousands of people from Grodno bravely fought on the front lines of the war. The fascist invaders destroyed over 120 industrial enterprises, almost all collective farms, state farms, and machine-tractor stations (MTS) in the area. On September 20, 1944, the Grodno Oblast was established with its center in Grodno.",
+        "novogrudokin19": "Novogrudok in the 19th century"
+    },
+    "sign": {
+        "input": "Sign in",
+        "email": "Email",
+        "password": "Password",
+        "signIn": "Sign in",
+        "signUp": "Sign up",
+        "acc": "Don't have an account?",
+        "reg": "Sign up",
+        "acc1": "Do you have an account?",
+        "error": "Incorrect login or password"
+    },
+    "sort": {
+        "popular": "Popular",
+        "sort": "Sort",
+        "min": "Minimum price",
+        "max": "Max price"
+    },
+    "adminPanel": {
+        "title": "Admin panel",
+        "description": "The admin panel (sometimes also called the admin dashboard or administrative panel) is a web interface designed for managing and administering a website or web application. It provides administrators and moderators with access to various tools and features that allow them to manage content, users, settings, and other aspects of the site."
+    },
+    "field": {
+        "search": "Looking for what?"
+    },
+    "order": {
+        "button": "Order in 1 click"
+    },
+    "modal": {
+        "phone": "Your phone number:",
+        "email": "Your email:",
+        "name": "How can you be contacted:",
+        "call": "Request a call"
+    },
+    "farm": {
+        "error": "Homestead data missing"
+    },
+    "back": {
+        "button": "Back"
+    },
+    "infoFarmstead": {
+        "info": "Homestead information:"
+    },
+    "video": {
+        "watch": "Watch video"
+    },
+    "open": {
+        "currency": "Currency converter"
+    },
+    "page404":{
+        "error": "The page is currently under development. We apologize for the inconvenience."
+    }
+}
