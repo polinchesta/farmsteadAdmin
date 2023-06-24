@@ -31,7 +31,6 @@
             "comments": [
                 {
                     "id": 0,
-                    "author": "John",
                     "content": "Great place to stay! Highly recommended!"
                 }
             ]
@@ -69,7 +68,6 @@
             "comments": [
                 {
                     "id": 1,
-                    "author": "Lisa",
                     "content": "The farmstead was beautiful and the hosts were very friendly."
                 }
             ]
@@ -102,7 +100,6 @@
             "comments": [
                 {
                     "id": 0,
-                    "author": "John",
                     "content": "Great place to stay! Highly recommended!"
                 }
             ]
@@ -201,12 +198,10 @@
             "comments": [
                 {
                     "id": 0,
-                    "author": "John",
                     "content": "Great place to stay! Highly recommended!"
                 },
                 {
                     "id": 1,
-                    "author": "Lisa",
                     "content": "The farmstead was beautiful and the hosts were very friendly."
                 }
             ]
@@ -301,7 +296,6 @@
             "comments": [
                 {
                     "id": 0,
-                    "author": "Егор",
                     "content": "вау, очень понравилось"
                 }
             ]

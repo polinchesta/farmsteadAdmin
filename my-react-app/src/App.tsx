@@ -18,7 +18,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
         <div>
           <Routes>
             <Route path={"/"} element={<AdminPanel />} />

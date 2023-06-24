@@ -5,6 +5,8 @@ import { ProductType } from '../../../types/productsTypes';
 import styles from './cardProduct.module.sass';
 import Modal from '../../../ui/modal/modal';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../../hooks/redux-hooks';
+import { productsActions } from '../../../store/products/productsSlice';
 
 interface CardProps {
     dataItem: ProductType;
@@ -14,6 +16,7 @@ interface CardProps {
 }
 
 const ProductsCard: React.FC<CardProps> = ({ id, dataItem, img, t }) => {
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const handleClick = () => {
         navigate(`/product/${dataItem.id}`);
@@ -30,6 +33,18 @@ const ProductsCard: React.FC<CardProps> = ({ id, dataItem, img, t }) => {
         openModal();
     };
 
+
+    const handleEdit = () => {
+        navigate(`/product/edit/${dataItem.id}`);
+    };
+
+    const handleDelete = () => {
+        if (window.confirm('Are you sure you want to delete this product?')) {
+            dispatch(productsActions.deleteProduct(dataItem.id));
+            navigate(`/product`);
+        }
+    };
+
     return (
         <div className={styles.container}>
             <section className={styles.product} onClick={handleClick}>
@@ -42,6 +57,14 @@ const ProductsCard: React.FC<CardProps> = ({ id, dataItem, img, t }) => {
                 <p>{dataItem.adress}</p>
                 <div className={styles.number}>
                     <a href={'tel:' + dataItem.number}>{dataItem.number}</a>
+                </div>
+                <div className={styles.buttons}>
+                    <button className={styles.button} onClick={handleEdit}>
+                        {t.add.edit}
+                    </button>
+                    <button className={styles.button} onClick={handleDelete}>
+                        {t.add.delete}
+                    </button>
                 </div>
             </section>
         </div>

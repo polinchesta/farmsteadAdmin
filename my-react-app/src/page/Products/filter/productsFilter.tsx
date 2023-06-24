@@ -1,20 +1,39 @@
 import { useEffect, useState } from 'react';
 import Select from '../../../ui/select/select';
-import { useAppDispatch } from '../../../hooks/redux-hooks';
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
 import { productsActions } from '../../../store/products/productsSlice';
 import TextField from '../../../ui/textField/textField';
 import useDebounceValue from '../../../hooks/useDebounceValue';
-import { ProductsFilterType } from '../../../types/productsTypes';
+import { ProductType, ProductsFilterType } from '../../../types/productsTypes';
 import styles from './productsFilter.module.sass';
 import useTranslation from '../../../hooks/useTranslation';
+import axios from 'axios';
 
 const ProductsFilter: React.FC = () => {
     const dispatch = useAppDispatch();
+    const [products, setProducts] = useState<ProductType[]>([]);
     const [sortField, setSortField] = useState('id');
     const [page, setPage] = useState(1);
     const [isLastPage, setIsLastPage] = useState(false);
     const [query, debounceQuery, setQuery] = useDebounceValue('', 500);
     const { t } = useTranslation();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const newProductId = generateUUID();
+    const [newProduct, setNewProduct] = useState<ProductType>({
+        id: generateUUID(),
+        img: '',
+        title: '',
+        price: 0,
+        count: '',
+        rajon: '',
+        adress: '',
+        number: '',
+        related: [],
+    });
+
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
 
     const fetchData = (filter: Partial<ProductsFilterType> = {}) => {
         dispatch(
@@ -29,11 +48,9 @@ const ProductsFilter: React.FC = () => {
         );
     };
 
-    const sortOptions = [
-        { value: 'id', text: t.sort.popular },
-        { value: 'priceAsc', text: t.sort.min },
-        { value: 'priceDesc', text: t.sort.max },
-    ];
+    function generateUUID(): number {
+        return Date.now();
+    }
 
     const updatePageAndFetchData = (newPage: number) => {
         setPage(newPage);
@@ -75,15 +92,39 @@ const ProductsFilter: React.FC = () => {
         }
     }, [page]);
 
+    const handleAddProduct = async (newProduct: ProductType) => {
+        try {
+            const response = await axios.post<ProductType>('http://localhost:3003/products', {
+                ...newProduct,
+                id: newProductId,
+                related: newProduct.related ? [...newProduct.related] : [],
+            });
+
+            const addedProduct = response.data;
+
+            setProducts((prevProducts) => [...prevProducts, addedProduct]);
+
+            setNewProduct({
+                id: generateUUID(),
+                img: '',
+                title: '',
+                price: 0,
+                count: '',
+                rajon: '',
+                adress: '',
+                number: '',
+                related: [],
+            });
+            setIsModalOpen(false);
+        } catch (error) {
+            console.error('Error adding product:', error);
+        }
+    };
+
     return (
         <form className={styles.container} onSubmit={onSortSubmit}>
             <div className="field">
-                <TextField
-                    className={styles.field}
-                    label={t.field.search}
-                    value={query}
-                    setValue={setQuery}
-                />
+                <TextField className={styles.field} label={t.field.search} value={query} setValue={setQuery} />
             </div>
             <div className={styles.pagination}>
                 <button className={styles.buttonPagination} type="button" onClick={handlePrevPage}>
@@ -96,10 +137,75 @@ const ProductsFilter: React.FC = () => {
                     className={`${styles.buttonPagination} ${isLastPage ? styles.disabled : ''}`}
                     type="button"
                     onClick={handleNextPage}
-                    disabled={isLastPage}>
+                    disabled={isLastPage}
+                >
                     ❯
                 </button>
             </div>
+            <button className={styles.button} onClick={handleOpenModal}>
+                Добавить продукт
+            </button>
+            {isModalOpen && (
+                <div className={styles.modal}>
+                    <h2>{t.add.add}</h2>
+                    <input
+                        type="text"
+                        value={newProduct.img}
+                        onChange={(e) => setNewProduct({ ...newProduct, img: e.target.value })}
+                        placeholder="Ссылка на изображение"
+                    />
+                    <input
+                        type="text"
+                        value={newProduct.title}
+                        onChange={(e) => setNewProduct({ ...newProduct, title: e.target.value })}
+                        placeholder="Название"
+                    />
+                    <input
+                        type="number"
+                        value={newProduct.price}
+                        onChange={(e) => setNewProduct({ ...newProduct, price: Number(e.target.value) })}
+                        placeholder="Цена"
+                    />
+                    <input
+                        type="text"
+                        value={newProduct.count}
+                        onChange={(e) => setNewProduct({ ...newProduct, count: e.target.value })}
+                        placeholder="Количество"
+                    />
+                    <input
+                        type="text"
+                        value={newProduct.rajon}
+                        onChange={(e) => setNewProduct({ ...newProduct, rajon: e.target.value })}
+                        placeholder="Район"
+                    />
+                    <input
+                        type="text"
+                        value={newProduct.adress}
+                        onChange={(e) => setNewProduct({ ...newProduct, adress: e.target.value })}
+                        placeholder="Адрес"
+                    />
+                    <input
+                        type="text"
+                        value={newProduct.number}
+                        onChange={(e) => setNewProduct({ ...newProduct, number: e.target.value })}
+                        placeholder="Номер телефона"
+                    />
+                    <input
+                        type="text"
+                        value={newProduct.related ? newProduct.related.join(', ') : ''}
+                        onChange={(e) => {
+                            const relatedValues = e.target.value.split(', ').map((value) => parseInt(value.trim(), 10));
+                            setNewProduct((prevProduct) => ({
+                                ...prevProduct,
+                                related: relatedValues,
+                            }));
+                        }}
+                        placeholder="Похожие товары"
+                    />
+                    <button onClick={() => handleAddProduct(newProduct)}>Добавить</button>
+                    <button onClick={() => setIsModalOpen(false)}>Отмена</button>
+                </div>
+            )}
         </form>
     );
 };

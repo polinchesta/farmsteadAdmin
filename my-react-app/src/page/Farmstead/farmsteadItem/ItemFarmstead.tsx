@@ -7,6 +7,7 @@ import useTranslation from '../../../hooks/useTranslation';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { farmsteadActions } from '../../../store/farmstead/farmsteadSlice';
+import { Header } from '../../../ui/header/header';
 
 export default function ItemFarmstead() {
     const dispatch = useAppDispatch();
@@ -76,6 +77,7 @@ export default function ItemFarmstead() {
 /*     console.log(dispatch(farmsteadActions.getFarmstead(farmsteadId)))
  */    return (
         <div className={styles.container}>
+            <Header />
             {loading && <Loader />}
             {farmstead && (
                 <>
@@ -162,7 +164,7 @@ export default function ItemFarmstead() {
                             </div>
                         </div>
                     </div>
-                    
+
                     {showScrollToTop && (
                         <div className={styles.scrollToTop} onClick={scrollToTop}>
                             &uarr;

@@ -43,7 +43,7 @@
     },
     "sign": {
         "input": "Sign in",
-        "email": "Email",
+        "email": "Logins",
         "password": "Password",
         "signIn": "Sign in",
         "signUp": "Sign up",
@@ -72,7 +72,9 @@
         "phone": "Your phone number:",
         "email": "Your email:",
         "name": "How can you be contacted:",
-        "call": "Request a call"
+        "call": "Request a call",
+        "date": "Select a date:",
+        "order": "Order"
     },
     "farm": {
         "error": "Homestead data missing"
@@ -91,5 +93,10 @@
     },
     "page404":{
         "error": "The page is currently under development. We apologize for the inconvenience."
+    },
+    "add": {
+        "edit":"Edit",
+        "delete":"Delete",
+        "add": "Add"
     }
 }

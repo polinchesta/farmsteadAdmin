@@ -5,6 +5,7 @@ import Loader from '../../ui/loader/loader';
 import { useAppSelector } from '../../hooks/redux-hooks';
 import CardFarmstead from './cardFarmstead/cardFarmstead';
 import FarmsteadsFilter from './filter/farmsteadsFilter';
+import { Header } from '../../ui/header/header';
 
 export function Farmsteads() {
     const farmsteads = useAppSelector((state) => state.farmsteads.farmsteads);
@@ -36,6 +37,7 @@ export function Farmsteads() {
 
     return (
         <>
+            <Header />
             {loading && <Loader />}
             <FarmsteadsFilter />
             <div className={styles.gridContainer}>

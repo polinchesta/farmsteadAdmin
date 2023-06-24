@@ -8,6 +8,7 @@ import useTranslation from '../../../hooks/useTranslation';
 import ProductsCard from '../cardProducts/cardProduct';
 import { ProductType, ProductsFilterType } from '../../../types/productsTypes';
 import getRelatedProducts from '../../../api/products/getRelatedProducts';
+import { Header } from '../../../ui/header/header';
 
 export default function ItemProduct() {
     const dispatch = useAppDispatch();
@@ -30,6 +31,7 @@ export default function ItemProduct() {
 
     return (
         <div className={styles.containerProd}>
+            <Header />
             {loading && <Loader />}
             <button onClick={handleClick} className={styles.back}>
                 {t.back.button}

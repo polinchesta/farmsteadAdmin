@@ -5,6 +5,7 @@ import { useAppSelector } from '../../hooks/redux-hooks';
 import ProductsFilter from './filter/productsFilter';
 import Loader from '../../ui/loader/loader';
 import useTranslation from '../../hooks/useTranslation';
+import { Header } from '../../ui/header/header';
 
 export function Products() {
     const products = useAppSelector((state) => state.products.products);
@@ -13,8 +14,8 @@ export function Products() {
     console.log(products)
     return (
         <>
+            <Header />
             {loading && <Loader />}
-
             <ProductsFilter />
             <div className={styles.gridContainer}>
                 {products.map((product) => (

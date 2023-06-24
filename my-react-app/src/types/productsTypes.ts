@@ -3,12 +3,13 @@ export interface ProductType {
     img: string;
     price: number;
     adress: string;
+    rajon: string;
     title: string;
     number: string;
     count: string;
     related?: number[];
-    data:any;
-    t: any;
+    data?:any;
+    t?: any;
 }
 
 

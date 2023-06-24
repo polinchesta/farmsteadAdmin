@@ -1,105 +1,127 @@
 .container
-    text-align: left
+  position: relative
+  margin: 10px 0px
+  height: 100%
+  display: flex
+  flex-direction: column
+  justify-content: space-between
 
-    .farmstead
-        border: 2px solid black
-        display: flex
-        width: 70%
-        align-items: flex-start
-        justify-content: flex-start /* Add this line */
-        margin: 25px auto
+  .farmstead
+    display: flex
+    width: 70%
+    border: 3px solid black
+    margin: 25px auto
+
     @media (max-width: 1200px)
-        width: 90%
+      .farmstead
+        width: 70%
+        display: block
 
     @media (max-width: 800px)
-        width: 90%
+      .farmstead
+        width: 60%
 
-    .title, .information, .readMore
-        font-family: 'PT Mono', monospace
-        color: black
-        text-align: justify
-        padding: 0px 15px
+.title,
+.information,
+.readMore
+  font-family: 'PT Mono', monospace
+  color: black
+  text-align: justify
+  padding: 0px 15px
 
-        @media (max-width: 1024px)
-            font-size: 13px
+@media (max-width: 1024px)
+  .title
+  .information
+  .readMore
+    font-size: 13px
 
-        @media (max-width: 768px)
-            font-size: 12px
+@media (max-width: 768px)
+  .title
+  .information
+  .readMore
+    font-size: 12px
 
-    .information
-        font-size: 16px
-        margin: 15px 0px
+.information
+  font-size: 16px
+  margin: 15px 0px
 
-        @media (max-width: 1200px)
-            font-size: 13px
+@media (max-width: 1200px)
+  .information
+    font-size: 13px
 
-        @media (max-width: 800px)
-            font-size: 12px
+@media (max-width: 800px)
+  .information
+    font-size: 12px
 
-    .title
-        font-size: 19px
-        text-align: left
+.title
+  font-size: 19px
+  text-align: left
 
-        @media (max-width: 1200px)
-            font-size: 17px
+@media (max-width: 1200px)
+  .title
+    font-size: 17px
 
-        @media (max-width: 800px)
-            font-size: 15px
+@media (max-width: 800px)
+  .title
+    font-size: 15px
 
-    img
-        margin-bottom: -5px
-        height: 250px
-        width: 350px
-        filter: grayscale(100%)
-        transition: filter 1.5s ease
-        &:hover
-            filter: none
+.falvarek
+  margin-bottom: -5px
+  width: 400px
+  height: auto
+  filter: grayscale(100%)
+  transition: filter 1.5s ease
 
-            @media (max-width: 1024px)
-                width: 270px
+.falvarek:hover
+  filter: none
 
-            @media (max-width: 768px)
-                width: 200px
+@media (max-width: 800px)
+  img
+    max-width: 80%
 
-    .readMore
-        font-size: 17px
-        margin: 20px 15px
-        display: flex
-        height: 40px
-        width: fit-content
-        justify-content: center
-        align-items: center
-        background: none
-        text-decoration: none
-        border: 3px solid black
-        &:hover
-            color: white
-            background: #6b6565
+@media (max-width: 560px)
+  img
+    max-width: 80%
 
-        @media (max-width: 1200px)
-            width: 270px
+.readMore
+  font-size: 17px
+  margin: 20px 15px
+  display: flex
+  height: 40px
+  width: fit-content
+  justify-content: center
+  align-items: center
+  background: none
+  text-decoration: none
+  border: 3px solid black
+  cursor: pointer
+  transition: background-color 0.3s ease
 
+.readMore:hover
+  color: white
+  background: #6b6565
 
-    .buttons
-        display: flex
-    .button
-        font-family: 'PT Mono', monospace
-        font-size: 17px
-        margin: 0px 15px
-        padding: 5px 5px
-        border-radius: 4px
-        display: flex
-        height: 40px
-        width: fit-content
-        justify-content: center
-        align-items: center
-        background: none
-        border: 3px solid black
-        color: black
-        text-decoration: none
-        cursor: pointer
-        transition: background-color 0.3s ease
+.buttons
+  display: flex
 
-        &:hover
-            background-color: #6b6565
-            color: white
+.button
+  font-family: 'PT Mono', monospace
+  font-size: 17px
+  margin: 0px 15px
+  padding: 5px 5px
+  border-radius: 4px
+  display: flex
+  height: 40px
+  width: fit-content
+  justify-content: center
+  align-items: center
+  background: none
+  border: 3px solid black
+  color: black
+  text-decoration: none
+  cursor: pointer
+  transition: background-color 0.3s ease
+
+.button:hover
+  background-color: #6b6565
+  color: white
