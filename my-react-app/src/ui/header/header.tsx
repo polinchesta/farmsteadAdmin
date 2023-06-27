@@ -59,23 +59,6 @@ export function Header() {
                                 BY
                             </button>
                         </div>
-                        <div className={styles.line}></div>
-                        <div className={styles.converterPopover} onClick={handlePopoverClick}>
-                            <button className={styles.openButton}>{t.open.currency}</button>
-                            {showPopover && (
-                                <>
-                                    <div className={styles.modalOverlay}></div>
-                                    <div className={styles.modalContainer}>
-                                        <button
-                                            className={styles.closeButton}
-                                            onClick={handleClose}>
-                                            &times;
-                                        </button>
-                                        <CurrencyConverter />
-                                    </div>
-                                </>
-                            )}
-                        </div>
                     </div>
                     <div className={styles.menu}>
                         <nav className={styles.blocks}>

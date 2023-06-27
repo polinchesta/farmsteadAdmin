@@ -1,8 +1,8 @@
 import axios from "axios";
-import { ProductType } from "../../types/productsTypes";
+import { ProductTypeUpdate } from "../../types/productsTypes";
 
-const editProductItem = (id: number, updatedProduct: ProductType) =>
-  axios.put<ProductType>(
+const editProductItem = (id: number, updatedProduct: ProductTypeUpdate) =>
+  axios.put<ProductTypeUpdate>(
     `http://localhost:3003/products/${id}`,
     updatedProduct
   );
@@ -10,7 +10,4 @@ const editProductItem = (id: number, updatedProduct: ProductType) =>
 const deleteProductItem = (id: number) =>
   axios.delete(`http://localhost:3003/products/${id}`);
 
-const addProductItem = (newProduct: ProductType) =>
-  axios.post<ProductType>("http://localhost:3003/products", newProduct);
-
-export { editProductItem, deleteProductItem, addProductItem };
+export { editProductItem, deleteProductItem};

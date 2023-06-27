@@ -16,12 +16,11 @@ export interface FarmsteadsFilterType {
 export interface FarmsteadsType {
     text: string;
     textAll: string;
-    url: string;
-    titleVideo: string;
+    url?: string;
+    titleVideo?: string;
     id: number;
     img: string;
     title: string;
-    t: any;
     adres: string;
     longitude: number;
     house: string;
@@ -31,7 +30,6 @@ export interface FarmsteadsType {
     email: string;
     top: number;
     latitude: number;
-    comment: Array <CommentType>
     image: Array <ImageType>
     comments: Array<CommentType>
 }

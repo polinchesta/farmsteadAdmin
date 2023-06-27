@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import Select from '../../../ui/select/select';
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
+import { useAppDispatch } from '../../../hooks/redux-hooks';
 import { productsActions } from '../../../store/products/productsSlice';
 import TextField from '../../../ui/textField/textField';
 import useDebounceValue from '../../../hooks/useDebounceValue';
@@ -143,68 +142,72 @@ const ProductsFilter: React.FC = () => {
                 </button>
             </div>
             <button className={styles.button} onClick={handleOpenModal}>
-                Добавить продукт
+                {t.add.add}
             </button>
             {isModalOpen && (
-                <div className={styles.modal}>
-                    <h2>{t.add.add}</h2>
-                    <input
-                        type="text"
-                        value={newProduct.img}
-                        onChange={(e) => setNewProduct({ ...newProduct, img: e.target.value })}
-                        placeholder="Ссылка на изображение"
-                    />
-                    <input
-                        type="text"
-                        value={newProduct.title}
-                        onChange={(e) => setNewProduct({ ...newProduct, title: e.target.value })}
-                        placeholder="Название"
-                    />
-                    <input
-                        type="number"
-                        value={newProduct.price}
-                        onChange={(e) => setNewProduct({ ...newProduct, price: Number(e.target.value) })}
-                        placeholder="Цена"
-                    />
-                    <input
-                        type="text"
-                        value={newProduct.count}
-                        onChange={(e) => setNewProduct({ ...newProduct, count: e.target.value })}
-                        placeholder="Количество"
-                    />
-                    <input
-                        type="text"
-                        value={newProduct.rajon}
-                        onChange={(e) => setNewProduct({ ...newProduct, rajon: e.target.value })}
-                        placeholder="Район"
-                    />
-                    <input
-                        type="text"
-                        value={newProduct.adress}
-                        onChange={(e) => setNewProduct({ ...newProduct, adress: e.target.value })}
-                        placeholder="Адрес"
-                    />
-                    <input
-                        type="text"
-                        value={newProduct.number}
-                        onChange={(e) => setNewProduct({ ...newProduct, number: e.target.value })}
-                        placeholder="Номер телефона"
-                    />
-                    <input
-                        type="text"
-                        value={newProduct.related ? newProduct.related.join(', ') : ''}
-                        onChange={(e) => {
-                            const relatedValues = e.target.value.split(', ').map((value) => parseInt(value.trim(), 10));
-                            setNewProduct((prevProduct) => ({
-                                ...prevProduct,
-                                related: relatedValues,
-                            }));
-                        }}
-                        placeholder="Похожие товары"
-                    />
-                    <button onClick={() => handleAddProduct(newProduct)}>Добавить</button>
-                    <button onClick={() => setIsModalOpen(false)}>Отмена</button>
-                </div>
+                <>
+                    <div className={styles.modalBackdrop}></div>
+                    <div className={styles.modal}>
+                        <h2>{t.add.add}</h2>
+                        <button className={styles.closeButton} onClick={() => setIsModalOpen(false)}>&times;</button>
+                        <input
+                            type="text"
+                            value={newProduct.img}
+                            onChange={(e) => setNewProduct({ ...newProduct, img: e.target.value })}
+                            placeholder={t.orderModal.img}
+                        />
+                        <input
+                            type="text"
+                            value={newProduct.title}
+                            onChange={(e) => setNewProduct({ ...newProduct, title: e.target.value })}
+                            placeholder={t.orderModal.title}
+                        />
+                        <p>{t.orderModal.price}:</p>
+                        <input
+                            type="number"
+                            value={newProduct.price}
+                            onChange={(e) => setNewProduct({ ...newProduct, price: Number(e.target.value) })}
+                            placeholder={t.orderModal.price}
+                        />
+                        <input
+                            type="text"
+                            value={newProduct.count}
+                            onChange={(e) => setNewProduct({ ...newProduct, count: e.target.value })}
+                            placeholder={t.orderModal.kol}
+                        />
+                        <input
+                            type="text"
+                            value={newProduct.rajon}
+                            onChange={(e) => setNewProduct({ ...newProduct, rajon: e.target.value })}
+                            placeholder={t.orderModal.rajon}
+                        />
+                        <input
+                            type="text"
+                            value={newProduct.adress}
+                            onChange={(e) => setNewProduct({ ...newProduct, adress: e.target.value })}
+                            placeholder={t.orderModal.adres}
+                        />
+                        <input
+                            type="text"
+                            value={newProduct.number}
+                            onChange={(e) => setNewProduct({ ...newProduct, number: e.target.value })}
+                            placeholder={t.orderModal.contact}
+                        />
+                        <input
+                            type="text"
+                            value={newProduct.related ? newProduct.related.join(', ') : ''}
+                            onChange={(e) => {
+                                const relatedValues = e.target.value.split(', ').map((value) => parseInt(value.trim(), 10));
+                                setNewProduct((prevProduct) => ({
+                                    ...prevProduct,
+                                    related: relatedValues,
+                                }));
+                            }}
+                            placeholder={t.orderModal.pohoz}
+                        />
+                        <button className={styles.button} onClick={() => handleAddProduct(newProduct)}>{t.add.add}</button>
+                    </div>
+                </>
             )}
         </form>
     );

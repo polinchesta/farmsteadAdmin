@@ -12,6 +12,18 @@ export interface ProductType {
     t?: any;
 }
 
+export interface ProductTypeUpdate {
+    id: number;
+    title: string;
+    img: string;
+    price: number;
+    count: string;
+    adress: string;
+    number: string;
+/*     rajon: string;
+ *//*     related?: number[]; */
+}
+
 
 export interface ProductsFilterType {
     sortField: string;

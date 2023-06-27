@@ -1,10 +1,9 @@
-import { useState, useEffect, SyntheticEvent } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks';
 import Loader from '../../../ui/loader/loader';
 import styles from './ItemFarmstead.module.sass';
 import useTranslation from '../../../hooks/useTranslation';
-import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { farmsteadActions } from '../../../store/farmstead/farmsteadSlice';
 import { Header } from '../../../ui/header/header';
@@ -24,7 +23,6 @@ export default function ItemFarmstead() {
     };
 
     useEffect(() => {
-        /*         dispatch(farmsteadActions.clearFarmstead()); */
         if (farmsteadId) {
             dispatch(farmsteadActions.getFarmstead(farmsteadId));
         }
@@ -73,9 +71,7 @@ export default function ItemFarmstead() {
         return Date.now();
     }
 
-
-/*     console.log(dispatch(farmsteadActions.getFarmstead(farmsteadId)))
- */    return (
+   return (
         <div className={styles.container}>
             <Header />
             {loading && <Loader />}

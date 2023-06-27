@@ -1,10 +1,9 @@
 import styles from './cardFarmstead.module.sass';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
-import { useEffect, useState } from 'react';
-import Modal from '../../../ui/modal/modal';
-import CardFarmsteadPopover from './cardFarmsteadPopover';
 import { FarmsteadsType } from '../../../types/farmsteadsTypes';
+import { farmsteadsActions } from '../../../store/farmsteads/farmsteadsSlice';
+import { useAppDispatch } from '../../../hooks/redux-hooks';
 interface CardProps {
     id: number;
     img: string;
@@ -18,37 +17,23 @@ const CardFarmstead: React.FC<CardProps> = ({
     dataItem,
     t,
 }) => {
-    const [popoverOpen, setPopoverOpen] = useState(false);
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const handleClick = () => {
         navigate(`/farmstead/${id}`);
     };
 
-    const [modalOpen, setModalOpen] = useState(false);
 
-    const openModal = () => {
-        setModalOpen(true);
-    };
-    const closeModal = () => {
-        setModalOpen(false);
-    };
-    const handleButtonClicked = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.stopPropagation();
-        openModal();
+    const handleEdit = () => {
+        navigate(`/farmatead/edit/${dataItem.id}`);
     };
 
-    const openPopover = () => {
-        setPopoverOpen(true);
+    const handleDelete = () => {
+        if (window.confirm('Are you sure you want to delete this product?')) {
+            dispatch(farmsteadsActions.deleteFarmstead(dataItem.id));
+            navigate(`/farmatead`);
+        }
     };
-    const closePopover = () => {
-        setPopoverOpen(false);
-    };
-    const handleButtonClickedPopover = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.stopPropagation();
-        openPopover();
-    };
-
-    console.log(dataItem.id)
     return (
         <div className={styles.container}>
             <section className={styles.farmstead} onClick={handleClick}>
@@ -64,6 +49,14 @@ const CardFarmstead: React.FC<CardProps> = ({
                     <p className={styles.information}>
                         {dataItem.contact}, {dataItem.email}
                     </p>
+                    <div className={styles.buttons}>
+                        <button className={styles.button} onClick={handleEdit}>
+                            {t.add.edit}
+                        </button>
+                        <button className={styles.button} onClick={handleDelete}>
+                            {t.add.delete}
+                        </button>
+                    </div>
                 </div>
             </section>
         </div>

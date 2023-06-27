@@ -6,6 +6,7 @@ import farmsteadReducer from './farmstead/farmsteadSlice';
 import farmsteadsReducer from './farmsteads/farmsteadsSlice';
 import productReducer from './product/productSlice';
 import relatedProductsReducer from './RelatedProduct/relatedProduct';
+import updatedProductReducer from './product/updateProduct';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   farmstead: farmsteadReducer,
   farmsteads: farmsteadsReducer,
   relatedProducts: relatedProductsReducer,
+  updatedProduct: updatedProductReducer
 });
 
 export const store = configureStore({

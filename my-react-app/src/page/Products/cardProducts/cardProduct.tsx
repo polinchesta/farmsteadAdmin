@@ -1,12 +1,9 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import useTranslation from '../../../hooks/useTranslation';
 import { ProductType } from '../../../types/productsTypes';
 import styles from './cardProduct.module.sass';
-import Modal from '../../../ui/modal/modal';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../hooks/redux-hooks';
 import { productsActions } from '../../../store/products/productsSlice';
+import { useState } from 'react';
 
 interface CardProps {
     dataItem: ProductType;
@@ -18,21 +15,10 @@ interface CardProps {
 const ProductsCard: React.FC<CardProps> = ({ id, dataItem, img, t }) => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const [isDeleting, setIsDeleting] = useState(false);
     const handleClick = () => {
         navigate(`/product/${dataItem.id}`);
     };
-    const [modalOpen, setModalOpen] = useState(false);
-    const openModal = () => {
-        setModalOpen(true);
-    };
-    const closeModal = () => {
-        setModalOpen(false);
-    };
-    const handleButtonClicked = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.stopPropagation();
-        openModal();
-    };
-
 
     const handleEdit = () => {
         navigate(`/product/edit/${dataItem.id}`);
@@ -40,8 +26,11 @@ const ProductsCard: React.FC<CardProps> = ({ id, dataItem, img, t }) => {
 
     const handleDelete = () => {
         if (window.confirm('Are you sure you want to delete this product?')) {
-            dispatch(productsActions.deleteProduct(dataItem.id));
-            navigate(`/product`);
+            setIsDeleting(true); 
+            dispatch(productsActions.deleteProduct(dataItem.id))
+                .then(() => {
+                    setIsDeleting(false);
+                });
         }
     };
 
