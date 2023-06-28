@@ -97,7 +97,7 @@ export default function ItemProduct() {
                     {t.back.button}
                 </button>
                 <button onClick={handleOpenModal} className={styles.button}>
-                    Edit
+                    {t.add.edit}
                 </button>
             </div>
             {product && (
@@ -176,7 +176,7 @@ export default function ItemProduct() {
                             onChange={(e) => setEditedNumber(e.target.value)}
                         />
                         <button onClick={handleSaveChanges} className={styles.button}>
-                            Save Changes
+                            {t.add.edit}
                         </button>
                     </div>
                 </div>

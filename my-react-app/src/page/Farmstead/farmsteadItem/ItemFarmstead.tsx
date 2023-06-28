@@ -7,6 +7,8 @@ import useTranslation from '../../../hooks/useTranslation';
 import 'leaflet/dist/leaflet.css';
 import { farmsteadActions } from '../../../store/farmstead/farmsteadSlice';
 import { Header } from '../../../ui/header/header';
+import { updatedFarmsteadActions } from '../../../store/farmstead/updateFarmstead';
+import { CommentType, ImageType } from '../../../types/farmsteadsTypes';
 
 export default function ItemFarmstead() {
     const dispatch = useAppDispatch();
@@ -14,6 +16,23 @@ export default function ItemFarmstead() {
     const loading = useAppSelector((state) => state.farmstead.loading);
     const [selectedImage, setSelectedImage] = useState(0);
     const [showVideoPopover, setShowVideoPopover] = useState(false);
+    const [editedTitle, setEditedTitle] = useState('');
+    const [editedTitleVideo, setEditedTitleVideo] = useState('');
+    const [editedUrl, setEditedUrl] = useState('');
+    const [editedHouse, setEditedHouse] = useState('');
+    const [editedText, setText] = useState('');
+    const [editedTextAll, setTextAll] = useState('');
+    const [editedLatitude, setLatitude] = useState('');
+    const [editedLongitude, setLongitude] = useState('');
+    const [editedImage, setEditedImage] = useState<ImageType[]>([]);
+    const [editedPlace, setEditedPlace] = useState('');
+    const [editedContact, setEditedContact] = useState('');
+    const [editedEmail, setEditedEmail] = useState('');
+    const [editedImg, setEditedImg] = useState('');
+    const [editedPrice, setEditedPrice] = useState('');
+    const [editedTop, setEditedTop] = useState('');
+    const [editedAddress, setEditedAddress] = useState('');
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const { id } = useParams();
     const { t } = useTranslation();
     const farmsteadId = +(id ?? -1);
@@ -28,6 +47,26 @@ export default function ItemFarmstead() {
         }
     }, [farmsteadId]);
 
+    useEffect(() => {
+        if (farmstead) {
+            setEditedTitle(farmstead.title || '');
+            setEditedImg(farmstead.img || '');
+            setEditedTitleVideo(farmstead.titleVideo || '');
+            setEditedUrl(farmstead.url || '');
+            setEditedHouse(farmstead.house || '');
+            setText(farmstead.text || '');
+            setEditedAddress(farmstead.adres || '')
+            setTextAll(farmstead.textAll || '');
+            setLatitude(farmstead.latitude !== null ? farmstead.latitude.toString() : '');
+            setLongitude(farmstead.longitude !== null ? farmstead.longitude.toString() : '');
+            setEditedTop(farmstead.top !== null ? farmstead.top.toString() : '');
+            setEditedEmail(farmstead.email || '');
+            setEditedContact(farmstead.contact || '');
+            setEditedPlace(farmstead.place || '');
+            setEditedPrice(farmstead.price !== null ? farmstead.price.toString() : '');
+            setEditedImage(farmstead.image || []);
+        }
+    }, [farmstead]);
 
 
     const handleThumbnailClick = (index: number) => {
@@ -71,16 +110,59 @@ export default function ItemFarmstead() {
         return Date.now();
     }
 
-   return (
+    const handleSaveChanges = () => {
+        setIsModalOpen(false);
+        const updatedFarmstead = {
+            id: farmsteadId,
+            updatedFarmstead: {
+                id: farmsteadId,
+                text: editedText,
+                textAll: editedTextAll,
+                url: editedUrl,
+                titleVideo: editedTitleVideo,
+                adres: editedAddress,
+                title: editedTitle,
+                longitude: parseInt(editedLongitude),
+                latitude: parseInt(editedLatitude),
+                house: editedHouse,
+                place: editedPlace,
+                price: parseInt(editedPrice),
+                contact: editedContact,
+                email: editedEmail,
+                top: parseInt(editedTop),
+                img: editedImg,
+                image: editedImage,
+            }
+        };
+        dispatch(updatedFarmsteadActions.updateFarmstead(updatedFarmstead));
+        window.location.reload();
+    };
+    const handleImageChange = (index: number, value: string) => {
+        setEditedImage((prevState) => {
+            const updatedImage = [...prevState];
+            updatedImage[index].img = value;
+            return updatedImage;
+        });
+    };
+
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+    return (
         <div className={styles.container}>
             <Header />
             {loading && <Loader />}
             {farmstead && (
                 <>
                     <div className={styles.typeContainer}>
-                        <button onClick={handleClick} className={styles.back}>
-                            {t.back.button}
-                        </button>
+                        <div className={styles.blockButton}>
+                            <button onClick={handleClick} className={styles.back}>
+                                {t.back.button}
+                            </button>
+                            <button onClick={handleOpenModal} className={styles.button}>
+                                {t.add.edit}
+                            </button>
+                        </div>
                         <div className={styles.type}>
                             <h2>{farmstead.title}</h2>
                             <div key={farmstead.textAll}>
@@ -160,6 +242,112 @@ export default function ItemFarmstead() {
                             </div>
                         </div>
                     </div>
+                    {isModalOpen && (
+                        <div className={styles.modal}>
+                            <div className={styles.modalContent}>
+                                <h2>Edit Product</h2>
+                                <button className={styles.closeButton} onClick={() => setIsModalOpen(false)}>
+                                    &times;
+                                </button>
+                                <input
+                                    className={styles.modalInput}
+                                    type="text"
+                                    value={editedTitle}
+                                    onChange={(e) => setEditedTitle(e.target.value)}
+                                />
+                                <input
+                                    className={styles.modalInput}
+                                    type="text"
+                                    value={editedImg}
+                                    onChange={(e) => setEditedImg(e.target.value)}
+                                />
+                                <input
+                                    className={styles.modalInput}
+                                    type="text"
+                                    value={editedTitleVideo}
+                                    onChange={(e) => setEditedTitleVideo(e.target.value)}
+                                />
+                                <input
+                                    className={styles.modalInput}
+                                    type="text"
+                                    value={editedUrl}
+                                    onChange={(e) => setEditedUrl(e.target.value)}
+                                />
+                                <input
+                                    className={styles.modalInput}
+                                    type="text"
+                                    value={editedHouse}
+                                    onChange={(e) => setEditedHouse(e.target.value)}
+                                />
+                                <input
+                                    className={styles.modalInput}
+                                    type="text"
+                                    value={editedText}
+                                    onChange={(e) => setText(e.target.value)}
+                                />
+                                <input
+                                    className={styles.modalInput}
+                                    type="text"
+                                    value={editedTextAll}
+                                    onChange={(e) => setTextAll(e.target.value)}
+                                />
+                                <input
+                                    className={styles.modalInput}
+                                    type="text"
+                                    value={editedLatitude}
+                                    onChange={(e) => setLatitude(e.target.value)}
+                                />
+                                <input
+                                    className={styles.modalInput}
+                                    type="text"
+                                    value={editedLongitude}
+                                    onChange={(e) => setLongitude(e.target.value)}
+                                />
+                                <input
+                                    className={styles.modalInput}
+                                    type="text"
+                                    value={editedTop}
+                                    onChange={(e) => setEditedTop(e.target.value)}
+                                />
+                                <input
+                                    className={styles.modalInput}
+                                    type="text"
+                                    value={editedEmail}
+                                    onChange={(e) => setEditedEmail(e.target.value)}
+                                />
+                                <input
+                                    className={styles.modalInput}
+                                    type="text"
+                                    value={editedContact}
+                                    onChange={(e) => setEditedContact(e.target.value)}
+                                />
+                                <input
+                                    className={styles.modalInput}
+                                    type="text"
+                                    value={editedPlace}
+                                    onChange={(e) => setEditedPlace(e.target.value)}
+                                />
+                                <input
+                                    className={styles.modalInput}
+                                    type="number"
+                                    value={editedPrice}
+                                    onChange={(e) => setEditedPrice(e.target.value)}
+                                />
+                                {farmstead.image.map((step: { img: string }, index: number) => (
+                                    <input
+                                        className={styles.modalInput}
+                                        type="text"
+                                        value={editedImage[index]?.img || ""}
+                                        onChange={(e) => {
+                                            handleImageChange(index, e.target.value);
+                                        }}
+                                    />))}
+                                <button onClick={handleSaveChanges} className={styles.button}>
+                                    {t.add.edit}
+                                </button>
+                            </div>
+                        </div>
+                    )}
 
                     {showScrollToTop && (
                         <div className={styles.scrollToTop} onClick={scrollToTop}>

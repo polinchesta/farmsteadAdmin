@@ -1,8 +1,8 @@
 import axios from "axios";
-import { FarmsteadsType } from "../../types/farmsteadsTypes";
+import { FarmsteadsTypeUpdate } from "../../types/farmsteadsTypes";
 
-const editFarmsteadItem = (id: number, updatedFarmstead: FarmsteadsType) =>
-  axios.put<FarmsteadsType>(
+const editFarmsteadItem = (id: number, updatedFarmstead: FarmsteadsTypeUpdate) =>
+  axios.put<FarmsteadsTypeUpdate>(
     `http://localhost:3002/farmsteads/${id}`,
     updatedFarmstead
   );
