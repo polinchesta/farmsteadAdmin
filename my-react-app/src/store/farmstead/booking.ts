@@ -17,12 +17,12 @@ const initialState: FarmsteadStateType = {
 
 
 const getFarmsteadBooking = createAsyncThunk<
-  Array<FarmsteadOrder>,
-  Array<FarmsteadOrder>,
+  FarmsteadOrder[], 
+  void,  
   { rejectValue: string }
->("booking/getFarmsteadBooking", async (data, thunkAPI) => {
+>("booking/getFarmsteadBooking", async (_, thunkAPI) => {
   try {
-    const response = await farmsteadsApi.getFarmsteadBooking(data);
+    const response = await farmsteadsApi.getFarmsteadBooking();
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue("Server error");
