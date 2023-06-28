@@ -28,9 +28,9 @@ const Booking = () => {
                         <p>Почта: {orderFarmstead.email}</p>
                         <p>Номер мобильного телефона: {orderFarmstead.number}</p>
                         <p>Дата заказа: {orderFarmstead.time}</p>
-                        <p>На какое число: {orderFarmstead.orderDate ? orderFarmstead.orderDate.toLocaleDateString() : 'N/A'}</p>
-                        <p>ID усадьбы{orderFarmstead.farmsteadId}</p>
-                        <p>Способ оплаты{orderFarmstead.oplata}</p>
+                        <p>На какое число: {orderFarmstead.orderDate ? new Date(orderFarmstead.orderDate).toLocaleDateString() : 'N/A'}</p>                        
+                        <p>ID усадьбы {orderFarmstead.farmsteadId}</p>
+                        <p>Способ оплаты {orderFarmstead.oplata}</p>
                     </div>
                 ))
             ) : (
