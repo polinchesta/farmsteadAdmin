@@ -68,6 +68,12 @@ export function Header() {
                             <Link className={styles.block} to="/farmstead">
                                 {t.header.links.farmstead}
                             </Link>
+                            <Link className={styles.block} to="/order">
+                                {t.header.links.order}
+                            </Link>
+                            <Link className={styles.block} to="/booking">
+                                {t.header.links.booking}
+                            </Link>
                         </nav>
                     </div>
                 </div>

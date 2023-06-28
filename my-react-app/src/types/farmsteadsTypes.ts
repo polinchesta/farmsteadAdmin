@@ -54,3 +54,16 @@ export interface FarmsteadsTypeUpdate {
     image?: Array <ImageType>
     comments?: Array<CommentType>
 }
+
+export interface FarmsteadOrder{
+    id:number;
+    name:string;
+    title: string;
+    number: string;
+    farmsteadId: number;
+    time:string;
+    orderDate: Date | null;
+    oplata: string;
+    email: string;
+    day: string
+}

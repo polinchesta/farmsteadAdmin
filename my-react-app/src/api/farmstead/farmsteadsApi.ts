@@ -1,4 +1,4 @@
-import getFarmsteadItem from './getFarmsteadItem';
+import {getFarmsteadItem, getFarmsteadOrder, getFarmsteadBooking} from './getFarmsteadItem';
 import getFarmsteadsList from './getFarmsteadList';
 import getTopFarmstead from './getTopFarmstead';
 import { editFarmsteadItem, deleteFarmsteadItem } from './editFarmstead';
@@ -10,6 +10,8 @@ const farmsteadsApi = {
     getTopFarmstead,
     deleteFarmsteadItem,
     editFarmsteadItem,
+    getFarmsteadOrder,
+    getFarmsteadBooking
 };
 
 export default farmsteadsApi;

@@ -1,10 +1,22 @@
-import axios from 'axios';
-import { FarmsteadsType } from '../../types/farmsteadsTypes';
+import axios from "axios";
+import { FarmsteadOrder, FarmsteadsType } from "../../types/farmsteadsTypes";
 
 const getFarmsteadItem = (id: number) =>
-    axios<FarmsteadsType>({
-        method: 'GET',
-        url: `http://localhost:3002/farmsteads/${id}`,
-    });
+  axios<FarmsteadsType>({
+    method: "GET",
+    url: `http://localhost:3002/farmsteads/${id}`,
+  });
 
-export default getFarmsteadItem;
+const getFarmsteadOrder = () =>
+  axios<FarmsteadOrder>({
+    method: "GET",
+    url: "http://localhost:3002/orderIn1Click",
+  });
+
+const getFarmsteadBooking = () =>
+  axios<FarmsteadOrder>({
+    method: "GET",
+    url: "http://localhost:3002/order",
+  });
+
+export { getFarmsteadItem, getFarmsteadOrder, getFarmsteadBooking };

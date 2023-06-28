@@ -2,6 +2,8 @@
   "header": {
     "links": {
       "main": "Strona główna",
+      "order": "Zamów",
+      "booking":"Rezerwować",
       "products": "Produkty",
       "farmstead": "Dwory",
       "sign": "Logowanie/Rejestracja"

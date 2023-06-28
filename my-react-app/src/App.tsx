@@ -13,6 +13,8 @@ import { Products } from './page/Products/Products';
 import { Farmsteads } from './page/Farmstead/Farmsteads';
 import ItemProduct from './page/Products/ItemProducts/ItemProducts';
 import ItemFarmstead from './page/Farmstead/farmsteadItem/ItemFarmstead';
+import Order from './page/Products/order/order';
+import Booking from './page/Farmstead/booking/booking';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
             <Route path={"/farmstead"} element={<Farmsteads />} />
             <Route path="/farmstead/:id" element={<ItemFarmstead />} />
             <Route path={"/login"} element={<LoginForm />}/>
+            <Route path={"/order"} element={<Order />}/>
+            <Route path={"/booking"} element={<Booking />}/>
             <Route path={"/product"} element={<Products />}/>
             <Route path="/product/:id" element={<ItemProduct />} />
             <Route path={"*"} element={<Page404 />} />

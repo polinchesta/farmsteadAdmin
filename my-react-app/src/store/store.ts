@@ -7,6 +7,9 @@ import farmsteadsReducer from './farmsteads/farmsteadsSlice';
 import productReducer from './product/productSlice';
 import relatedProductsReducer from './RelatedProduct/relatedProduct';
 import updatedProductReducer from './product/updateProduct';
+import productOrderReducer from './product/orderSlice';
+import farmsteadOrderReducer from './farmstead/orderSlice';
+import farmsteadBookingReducer from './farmstead/booking'
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -16,7 +19,11 @@ const rootReducer = combineReducers({
   farmstead: farmsteadReducer,
   farmsteads: farmsteadsReducer,
   relatedProducts: relatedProductsReducer,
-  updatedProduct: updatedProductReducer
+  updatedProduct: updatedProductReducer,
+  orderProduct: productOrderReducer,
+  orderFarmstead: farmsteadOrderReducer,
+  bookingFarmstead: farmsteadBookingReducer
+
 });
 
 export const store = configureStore({

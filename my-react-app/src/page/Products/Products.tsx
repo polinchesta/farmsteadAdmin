@@ -11,7 +11,6 @@ export function Products() {
     const products = useAppSelector((state) => state.products.products);
     const loading = useAppSelector((state) => state.products.loading);
     const { t } = useTranslation();
-    console.log(products)
     return (
         <>
             <Header />
